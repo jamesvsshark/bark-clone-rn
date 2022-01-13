@@ -1,8 +1,13 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import tailwind from "tailwind-rn";
+import { Ionicons } from '@expo/vector-icons'; 
 
 const RequestCard = ({ request }) => {
+  const navigation = useNavigation();
+
+  const hasMatches = request.requestStatus === "MATCHED";
   const isClosed = request.requestStatus === "CLOSED";
 
   return (
@@ -33,19 +38,28 @@ const RequestCard = ({ request }) => {
               Your request has been closed
             </Text>
           </View>
+        ) : hasMatches ? (
+          <View style={tailwind("px-2 py-4 mt-4")}>
+            <View style={tailwind("flex items-center")}>
+              <Ionicons name="search-circle-outline" size={80} color="black" />
+            </View>
+            <Text style={tailwind("text-center font-bold mt-4 text-gray-400")}>
+              We've got professionals ready and available!
+            </Text>
+          </View>
         ) : (
-          <View style={tailwind("px-2 py-4 mt-8")}>
+          <View style={tailwind("px-2 py-4 mt-4")}>
             <View style={tailwind("flex items-center")}>
               <Image
                 style={[
                   tailwind("rounded-full mb-4"),
                   {
-                    width: 80,
-                    height: 80,
+                    width: 75,
+                    height: 75,
                     resizeMode: "contain",
                   },
                 ]}
-                source={request.matches[0]?.matchLogo}
+                source={request.matches[0]?.companyLogo}
               />
             </View>
             <Text style={tailwind("text-center font-bold mt-4 text-gray-400")}>
@@ -56,10 +70,11 @@ const RequestCard = ({ request }) => {
         )}
       </View>
 
-      <View style={tailwind("mx-10")}>
+      <View style={tailwind("mx-10 mb-8")}>
         <TouchableOpacity
+          onPress={() => navigation.navigate("Request details", { request })}
           style={[
-            tailwind("rounded-lg px-6 py-2 bg-blue-500 mt-4 mb-12"),
+            tailwind("rounded-lg px-6 py-2 bg-blue-500 mt-4"),
             {
               shadowOffset: { width: 0, height: 4 },
               elevation: 4,
@@ -71,10 +86,30 @@ const RequestCard = ({ request }) => {
           ]}
         >
           <Text style={tailwind("text-center text-white text-lg font-medium")}>
-            View {isClosed ? "request" : "quote"}
+            View {isClosed ? "request" : hasMatches ? "professionals" : "quote"}
           </Text>
         </TouchableOpacity>
       </View>
+
+      {hasMatches && (
+        <View
+          style={tailwind(
+            "mb-6 flex flex-row justify-between items-center mx-10"
+          )}
+        >
+          <TouchableOpacity>
+            <Text style={tailwind("text-center text-blue-600")}>
+              Close Request
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={tailwind("text-center text-blue-600")}>
+              I hired someone
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };

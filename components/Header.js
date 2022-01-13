@@ -21,7 +21,7 @@ const Header = () => {
             source={require("../assets/barklogo.png")}
           />
         </View>
-        {/* <View style={tailwind("flex flex-row")}>
+        <View style={tailwind("flex flex-row")}>
           <TouchableOpacity>
             <Ionicons
               style={tailwind("mx-2 text-gray-300")}
@@ -29,14 +29,14 @@ const Header = () => {
               size={24}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <Ionicons
               style={tailwind("mx-2")}
               name="ios-menu-outline"
               size={24}
             />
-          </TouchableOpacity>
-        </View> */}
+          </TouchableOpacity> */}
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -9,6 +9,7 @@ import Requests from "./pages/Requests";
 import NewRequestModal from "./pages/NewRequestModal";
 import TabBarIcon from "./components/TabBarIcon";
 import tailwind from "tailwind-rn";
+import RequestDetails from "./pages/RequestDetails";
 // import { useTailwind, TailwindProvider } from "tailwind-rn";
 // import utilities from "./tailwind.json";
 // import "./tailwind.css/";
@@ -26,13 +27,18 @@ export default function App() {
       <Header />
 
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+          initialRouteName="Root"
+          screenOptions={{ headerShown: false }}
+        >
           <Stack.Screen
             name="Root"
             component={BottomTabNavigator}
             options={{ headerShown: false }}
           />
-          <Stack.Group screenOptions={{ presentation: "modal" }}>
+          <Stack.Group
+            screenOptions={{ presentation: "modal", gestureEnabled: false }}
+          >
             <Stack.Screen name="NewRequestModal" component={NewRequestModal} />
           </Stack.Group>
         </Stack.Navigator>
@@ -41,6 +47,21 @@ export default function App() {
     // </TailwindProvider>
   );
 }
+
+const RequestNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Requests"
+      component={Requests}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Request details"
+      component={RequestDetails}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+);
 
 const BottomTabNavigator = () => (
   <BottomTab.Navigator
@@ -52,7 +73,7 @@ const BottomTabNavigator = () => (
   >
     <BottomTab.Screen
       name="My requests"
-      component={Requests}
+      component={RequestNavigator}
       options={{
         // tabBarLabelStyle: tailwind("text-gray-500"),
         tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
