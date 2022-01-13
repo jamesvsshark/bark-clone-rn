@@ -35,8 +35,8 @@ const RecommendedServiceCard = ({ service }) => (
       ]}
       source={service.thumbnailImage}
     />
-    <View style={tailwind("px-6 py-4")}>
-      <Text style={tailwind("font-bold text-gray-500 text-base")}>
+    <View style={tailwind("px-4 py-4")}>
+      <Text style={tailwind("font-bold text-gray-400 text-base")}>
         {service.category}
       </Text>
     </View>

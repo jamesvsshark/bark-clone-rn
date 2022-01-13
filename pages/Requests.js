@@ -4,6 +4,7 @@ import RequestCard from "../components/RequestCard";
 import RecommendedServicesCarousel from "../components/RecommendedServicesCarousel";
 // import { useTailwind } from "tailwind-rn";
 import tailwind from "tailwind-rn";
+import { useNavigation } from "@react-navigation/native";
 
 const sampleRequests = [
   {
@@ -44,12 +45,14 @@ const sampleRecommendedServices = [
 
 const Requests = () => {
   // const tailwind = useTailwind();
+  const navigation = useNavigation();
 
   return (
-    <ScrollView style={tailwind("flex px-4 py-4")}>
+    <ScrollView style={tailwind("flex px-4 py-4 bg-gray-100")}>
       <View style={tailwind("flex flex-row justify-between items-center")}>
         <Text style={tailwind("font-semibold text-lg")}>Your requests</Text>
         <TouchableOpacity
+          onPress={() => navigation.navigate("NewRequestModal")}
           style={[
             tailwind("rounded border border-solid"),
             { borderColor: "rgb(215, 215, 215)" },
