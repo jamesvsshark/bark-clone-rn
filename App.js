@@ -10,6 +10,7 @@ import NewRequestModal from "./pages/NewRequestModal";
 import TabBarIcon from "./components/TabBarIcon";
 import tailwind from "tailwind-rn";
 import RequestDetails from "./pages/RequestDetails";
+import { AppDataProvider } from "./hooks/useAppData";
 // import { useTailwind, TailwindProvider } from "tailwind-rn";
 // import utilities from "./tailwind.json";
 // import "./tailwind.css/";
@@ -22,28 +23,33 @@ export default function App() {
 
   return (
     // <TailwindProvider utilities={utilities}>
-    <SafeAreaProvider>
-      <StatusBar style="auto" />
-      <Header />
+    <AppDataProvider>
+      <SafeAreaProvider>
+        <StatusBar style="auto" />
+        <Header />
 
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Root"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen
-            name="Root"
-            component={BottomTabNavigator}
-            options={{ headerShown: false }}
-          />
-          <Stack.Group
-            screenOptions={{ presentation: "modal", gestureEnabled: false }}
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Root"
+            screenOptions={{ headerShown: false }}
           >
-            <Stack.Screen name="NewRequestModal" component={NewRequestModal} />
-          </Stack.Group>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+            <Stack.Screen
+              name="Root"
+              component={BottomTabNavigator}
+              options={{ headerShown: false }}
+            />
+            <Stack.Group
+              screenOptions={{ presentation: "modal", gestureEnabled: false }}
+            >
+              <Stack.Screen
+                name="NewRequestModal"
+                component={NewRequestModal}
+              />
+            </Stack.Group>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </AppDataProvider>
     // </TailwindProvider>
   );
 }

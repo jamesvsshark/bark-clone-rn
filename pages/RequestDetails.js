@@ -6,10 +6,11 @@ import MatchCard from "../components/MatchCard";
 import Pluralize from "../utils/Pluralize";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import RecommendedServicesCarousel from "../components/RecommendedServicesCarousel";
+import useAppData from "../hooks/useAppData";
 
 const RequestDetails = ({ route, navigation }) => {
+  const { sampleRecommendedServices } = useAppData();
   const request = route.params.request;
-  console.log(request);
 
   return (
     <SafeAreaView edges={["bottom"]}>
