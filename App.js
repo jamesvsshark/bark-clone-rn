@@ -11,6 +11,7 @@ import TabBarIcon from "./components/TabBarIcon";
 import tailwind from "tailwind-rn";
 import RequestDetails from "./pages/RequestDetails";
 import { AppDataProvider } from "./hooks/useAppData";
+import RequestDetailsHeader from "./components/RequestDetailsHeader";
 // import { useTailwind, TailwindProvider } from "tailwind-rn";
 // import utilities from "./tailwind.json";
 // import "./tailwind.css/";
@@ -64,10 +65,19 @@ const RequestNavigator = () => (
     <Stack.Screen
       name="Request details"
       component={RequestDetails}
-      options={{ headerShown: false }}
+      options={() => ({
+        header: (props) => <RequestDetailsHeader {...props} />,
+      })}
     />
   </Stack.Navigator>
 );
+
+{
+  /* <Text>{route.params.request.requestCategory}</Text> */
+}
+{
+  /* <Text>Left</Text> */
+}
 
 const BottomTabNavigator = () => (
   <BottomTab.Navigator

@@ -1,16 +1,38 @@
-import React from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import tailwind from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { getSampleAvailableServices } from "../api/Services";
 
 const NewRequestModal = () => {
+  const [query, setQuery] = useState("");
+  const [serviceSearchResults, setServiceSearchResults] = useState([]);
+
   const navigation = useNavigation();
+
+  const onServiceSearchTextChange = async (text) => {
+    setQuery(text);
+    const results = await getSampleAvailableServices(text);
+    setServiceSearchResults(results);
+  };
+
+  const onServiceSelected = (item) => {
+    setQuery(item.title);
+    setServiceSearchResults([]);
+  };
 
   return (
     <View style={tailwind("flex flex-1 bg-white")}>
-      <View style={tailwind("flex  flex-row justify-end px-2 py-4")}>
+      <View style={tailwind("flex flex-row justify-end px-2 py-4")}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="close" size={24} style={tailwind("text-gray-400")} />
         </TouchableOpacity>
@@ -27,12 +49,31 @@ const NewRequestModal = () => {
           <Text style={tailwind("text-lg font-semibold mb-2")}>
             What service do you need?
           </Text>
+
           <TextInput
             placeholder="e.g Handyman, House Cleaning"
+            value={query}
+            onChangeText={onServiceSearchTextChange}
             style={tailwind(
-              "text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              "text-base p-2 h-11 border border-gray-300 rounded-lg font-medium"
             )}
           />
+
+          <View>
+            <FlatList
+              data={serviceSearchResults}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => onServiceSelected(item)}>
+                  <Text
+                    style={tailwind("p-2 text-lg text-gray-500 font-medium")}
+                  >
+                    {item.title}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
         </View>
 
         <View style={tailwind("mb-8")}>
@@ -42,7 +83,7 @@ const NewRequestModal = () => {
           <TextInput
             placeholder="Enter ZIP code or town/city"
             style={tailwind(
-              "text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              "text-base p-2 h-11 border border-gray-300 rounded-lg font-medium"
             )}
           />
         </View>
