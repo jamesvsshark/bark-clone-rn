@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Requests from "./pages/Requests";
 import NewRequestModal from "./pages/NewRequestModal";
+import RequestScreeningModal from "./pages/RequestScreeningModal";
 import TabBarIcon from "./components/TabBarIcon";
 import tailwind from "tailwind-rn";
 import RequestDetails from "./pages/RequestDetails";
@@ -46,6 +47,10 @@ export default function App() {
                 name="NewRequestModal"
                 component={NewRequestModal}
               />
+              <Stack.Screen
+                name="RequestScreeningModal"
+                component={RequestScreeningModal}
+              />
             </Stack.Group>
           </Stack.Navigator>
         </NavigationContainer>
@@ -72,13 +77,6 @@ const RequestNavigator = () => (
   </Stack.Navigator>
 );
 
-{
-  /* <Text>{route.params.request.requestCategory}</Text> */
-}
-{
-  /* <Text>Left</Text> */
-}
-
 const BottomTabNavigator = () => (
   <BottomTab.Navigator
     initialRouteName="My requests"
@@ -91,7 +89,6 @@ const BottomTabNavigator = () => (
       name="My requests"
       component={RequestNavigator}
       options={{
-        // tabBarLabelStyle: tailwind("text-gray-500"),
         tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
       }}
     />
@@ -99,7 +96,6 @@ const BottomTabNavigator = () => (
       name="Notifications"
       component={Requests}
       options={{
-        // tabBarLabelStyle: tailwind("text-gray-500"),
         tabBarIcon: ({ color }) => <TabBarIcon name="bell" color={color} />,
       }}
     />
@@ -107,7 +103,6 @@ const BottomTabNavigator = () => (
       name="Settings"
       component={Requests}
       options={{
-        // tabBarLabelStyle: tailwind("text-gray-500"),
         tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
       }}
     />

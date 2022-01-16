@@ -17,6 +17,9 @@ const NewRequestModal = () => {
   const [query, setQuery] = useState("");
   const [serviceSearchResults, setServiceSearchResults] = useState([]);
 
+  const [selectedService, setSelectedService] = useState(null);
+  const [serviceLocation, setServiceLocation] = useState(null);
+
   const navigation = useNavigation();
 
   const onServiceSearchTextChange = async (text) => {
@@ -28,6 +31,7 @@ const NewRequestModal = () => {
   const onServiceSelected = (item) => {
     setQuery(item.title);
     setServiceSearchResults([]);
+    setSelectedService(item);
   };
 
   return (
@@ -85,11 +89,20 @@ const NewRequestModal = () => {
             style={tailwind(
               "text-base p-2 h-11 border border-gray-300 rounded-lg font-medium"
             )}
+            onChangeText={setServiceLocation}
           />
         </View>
 
         <View style={tailwind("mx-10")}>
           <TouchableOpacity
+            onPress={() => {
+              // TODO: validation on form submission
+              navigation.goBack();
+              navigation.navigate("RequestScreeningModal", {
+                selectedService,
+                serviceLocation,
+              });
+            }}
             style={[
               tailwind("rounded-lg px-6 py-2 bg-blue-500 mt-4 mb-12"),
               {
