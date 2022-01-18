@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import MatchCard from "../components/MatchCard";
 import Pluralize from "../utils/Pluralize";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -9,6 +9,7 @@ import RecommendedServicesCarousel from "../components/RecommendedServicesCarous
 import useAppData from "../hooks/useAppData";
 
 const RequestDetails = ({ route, navigation }) => {
+  const tailwind = useTailwind();
   const { sampleRecommendedServices } = useAppData();
   const request = route.params.request;
 

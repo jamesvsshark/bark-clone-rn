@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-// import { useTailwind } from "tailwind-rn";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 
 const Header = () => {
-  // const tailwind = useTailwind();
+  const tailwind = useTailwind();
 
   return (
     <SafeAreaView edges={["top", "left", "right"]}>

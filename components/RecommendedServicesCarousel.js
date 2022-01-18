@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 
 const RecommendedServicesCarousel = ({ services }) => {
+  const tailwind = useTailwind();
+
   return (
     <View style={tailwind("flex mt-4 py-4 mb-4")}>
       <View style={tailwind("px-4 py-4")}>

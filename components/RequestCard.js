@@ -1,10 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import tailwind from "tailwind-rn";
-import { Ionicons } from '@expo/vector-icons'; 
+import { useTailwind } from "tailwind-rn";
+import { Ionicons } from "@expo/vector-icons";
 
 const RequestCard = ({ request }) => {
+  const tailwind = useTailwind();
   const navigation = useNavigation();
 
   const hasMatches = request.requestStatus === "MATCHED";

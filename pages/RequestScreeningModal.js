@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 
 const RequestScreeningModal = ({ route }) => {
+  const tailwind = useTailwind();
   const navigation = useNavigation();
   const screeningQuestions = route.params.selectedService.screeningQuestions;
-  //   console.log(screeningQuestions);
 
   return (
     <View style={tailwind("flex flex-1 bg-white")}>

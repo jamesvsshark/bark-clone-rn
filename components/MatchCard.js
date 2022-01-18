@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 
 const MatchCard = ({ match }) => {
+  const tailwind = useTailwind();
+
   return (
     <View
       style={[

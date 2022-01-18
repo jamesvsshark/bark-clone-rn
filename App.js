@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Header from "./components/Header";
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,54 +8,50 @@ import Requests from "./pages/Requests";
 import NewRequestModal from "./pages/NewRequestModal";
 import RequestScreeningModal from "./pages/RequestScreeningModal";
 import TabBarIcon from "./components/TabBarIcon";
-import tailwind from "tailwind-rn";
 import RequestDetails from "./pages/RequestDetails";
 import { AppDataProvider } from "./hooks/useAppData";
 import RequestDetailsHeader from "./components/RequestDetailsHeader";
-// import { useTailwind, TailwindProvider } from "tailwind-rn";
-// import utilities from "./tailwind.json";
-// import "./tailwind.css/";
+import { TailwindProvider } from "tailwind-rn";
+import utilities from "./tailwind.json";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 export default function App() {
-  // const tailwind = useTailwind();
-
   return (
-    // <TailwindProvider utilities={utilities}>
-    <AppDataProvider>
-      <SafeAreaProvider>
-        <StatusBar style="auto" />
-        <Header />
+    <TailwindProvider utilities={utilities}>
+      <AppDataProvider>
+        <SafeAreaProvider>
+          <StatusBar style="auto" />
+          <Header />
 
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Root"
-            screenOptions={{ headerShown: false }}
-          >
-            <Stack.Screen
-              name="Root"
-              component={BottomTabNavigator}
-              options={{ headerShown: false }}
-            />
-            <Stack.Group
-              screenOptions={{ presentation: "modal", gestureEnabled: false }}
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Root"
+              screenOptions={{ headerShown: false }}
             >
               <Stack.Screen
-                name="NewRequestModal"
-                component={NewRequestModal}
+                name="Root"
+                component={BottomTabNavigator}
+                options={{ headerShown: false }}
               />
-              <Stack.Screen
-                name="RequestScreeningModal"
-                component={RequestScreeningModal}
-              />
-            </Stack.Group>
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </AppDataProvider>
-    // </TailwindProvider>
+              <Stack.Group
+                screenOptions={{ presentation: "modal", gestureEnabled: false }}
+              >
+                <Stack.Screen
+                  name="NewRequestModal"
+                  component={NewRequestModal}
+                />
+                <Stack.Screen
+                  name="RequestScreeningModal"
+                  component={RequestScreeningModal}
+                />
+              </Stack.Group>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </AppDataProvider>
+    </TailwindProvider>
   );
 }
 

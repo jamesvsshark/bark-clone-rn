@@ -7,13 +7,13 @@ import {
   FlatList,
   ScrollView,
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { getSampleAvailableServices } from "../api/Services";
 
 const NewRequestModal = () => {
+  const tailwind = useTailwind();
   const [query, setQuery] = useState("");
   const [serviceSearchResults, setServiceSearchResults] = useState([]);
 

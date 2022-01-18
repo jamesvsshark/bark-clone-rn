@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import RequestCard from "../components/RequestCard";
 import RecommendedServicesCarousel from "../components/RecommendedServicesCarousel";
-// import { useTailwind } from "tailwind-rn";
-import tailwind from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
 import useAppData from "../hooks/useAppData";
 
 const Requests = () => {
-  // const tailwind = useTailwind();
+  const tailwind = useTailwind();
   const { sampleRequests, sampleRecommendedServices } = useAppData();
   const navigation = useNavigation();
 
