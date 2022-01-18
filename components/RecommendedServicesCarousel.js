@@ -20,29 +20,33 @@ const RecommendedServicesCarousel = ({ services }) => {
   );
 };
 
-const RecommendedServiceCard = ({ service }) => (
-  <TouchableOpacity
-    style={[
-      tailwind("border border-solid mx-4"),
-      { borderColor: "rgb(215, 215, 215)" },
-    ]}
-  >
-    <Image
+const RecommendedServiceCard = ({ service }) => {
+  const tailwind = useTailwind();
+  
+  return (
+    <TouchableOpacity
       style={[
-        {
-          width: 303,
-          height: 260,
-          resizeMode: "cover",
-        },
+        tailwind("border border-solid mx-4"),
+        { borderColor: "rgb(215, 215, 215)" },
       ]}
-      source={service.thumbnailImage}
-    />
-    <View style={tailwind("px-4 py-4")}>
-      <Text style={tailwind("font-bold text-gray-500 text-base")}>
-        {service.category}
-      </Text>
-    </View>
-  </TouchableOpacity>
-);
+    >
+      <Image
+        style={[
+          {
+            width: 303,
+            height: 260,
+            resizeMode: "cover",
+          },
+        ]}
+        source={service.thumbnailImage}
+      />
+      <View style={tailwind("px-4 py-4")}>
+        <Text style={tailwind("font-bold text-gray-500 text-base")}>
+          {service.category}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export default RecommendedServicesCarousel;
