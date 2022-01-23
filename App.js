@@ -13,6 +13,7 @@ import { AppDataProvider } from "./hooks/useAppData";
 import RequestDetailsHeader from "./components/RequestDetailsHeader";
 import { TailwindProvider } from "tailwind-rn";
 import utilities from "./tailwind.json";
+import CompanyProfile from "./pages/CompanyProfile";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -26,27 +27,28 @@ export default function App() {
           <Header />
 
           <NavigationContainer>
-            <Stack.Navigator
-              initialRouteName="Root"
-              screenOptions={{ headerShown: false }}
-            >
+            <Stack.Navigator initialRouteName="Root">
               <Stack.Screen
                 name="Root"
                 component={BottomTabNavigator}
                 options={{ headerShown: false }}
               />
-              <Stack.Group
-                screenOptions={{ presentation: "modal", gestureEnabled: false }}
-              >
-                <Stack.Screen
-                  name="NewRequestModal"
-                  component={NewRequestModal}
-                />
-                <Stack.Screen
-                  name="RequestScreeningModal"
-                  component={RequestScreeningModal}
-                />
-              </Stack.Group>
+              {/* does this belong here? */}
+              <Stack.Screen
+                name="CompanyProfile"
+                component={CompanyProfile}
+                // options={{
+                //   header: () => (
+                //     <TouchableOpacity onPress={() => navigation.goBack()}>
+                //       <Ionicons
+                //         name="close"
+                //         size={24}
+                //         style={tailwind("text-gray-400")}
+                //       />
+                //     </TouchableOpacity>
+                //   ),
+                // }}
+              />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaProvider>
@@ -69,6 +71,19 @@ const RequestNavigator = () => (
         header: (props) => <RequestDetailsHeader {...props} />,
       })}
     />
+    <Stack.Group
+      screenOptions={{
+        presentation: "modal",
+        gestureEnabled: false,
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="NewRequestModal" component={NewRequestModal} />
+      <Stack.Screen
+        name="RequestScreeningModal"
+        component={RequestScreeningModal}
+      />
+    </Stack.Group>
   </Stack.Navigator>
 );
 

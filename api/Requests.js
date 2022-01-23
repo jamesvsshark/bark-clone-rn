@@ -9,11 +9,11 @@ const sampleRequests = [
         companyId: "1",
         companyLogo: require("../assets/trainer-logo.png"),
         companyName: "Sakonnet Lawn Care",
-        highlightedServices: [
-          "Reoccurring cuts",
-          "Clean outs",
-          "Snow removal",
-        ],
+        about:
+          "Sakkonnet Lawn Care was established in 2013 and has been a full service landscape company serving it's community. We do our best to provide fair services and fair prices. We are family owned and operated.",
+        companyLocation: "Fall River, MA",
+        categories: ["Gardening", "Landscaping", "Lawn Care"],
+        highlightedServices: ["Reoccurring cuts", "Clean outs", "Snow removal"],
         reviewData: {
           averageRating: 3,
           reviewsCount: 10,
@@ -24,6 +24,10 @@ const sampleRequests = [
         companyId: "3",
         companyLogo: require("../assets/ph.png"),
         companyName: "ProperHandyman",
+        about:
+          "Proper Handyman was established in 2013 and has been a full service construction company serving it's community. We do our best to provide fair services and fair prices. We are family owned and operated.",
+        companyLocation: "Fall River, MA",
+        categories: ["Home Repairs", "Windows & Doors", "Light Remodels"],
         highlightedServices: [
           "Quick to respond",
           "Interior painting",

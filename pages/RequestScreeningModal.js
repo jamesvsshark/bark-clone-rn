@@ -30,6 +30,7 @@ const RequestScreeningModal = ({ route }) => {
 };
 
 const ProgressBar = () => {
+  const tailwind = useTailwind();
   // TODO some logic to make the width calculate based on props received
   const dynamicWidth = "w-1/4";
   return (
@@ -40,6 +41,7 @@ const ProgressBar = () => {
 };
 
 const MultiStep = ({ steps }) => {
+  const tailwind = useTailwind();
   const [currentStep, setCurrentStep] = useState(steps[0]);
   const [doesCurrentStepHaveAPrevious, setDoesCurrentStepHaveAPrevious] =
     useState(false);
@@ -71,7 +73,9 @@ const MultiStep = ({ steps }) => {
   return (
     <View>
       <View>
-        <Text style={tailwind("text-center text-xl font-medium pt-2 mb-4 px-4")}>
+        <Text
+          style={tailwind("text-center text-xl font-medium pt-2 mb-4 px-4")}
+        >
           {currentStep.questionText}
         </Text>
       </View>
@@ -132,6 +136,8 @@ const MultiStep = ({ steps }) => {
 };
 
 const SingleChoiceOptions = ({ choices }) => {
+  const tailwind = useTailwind();
+
   return (
     <View
       style={[
@@ -170,41 +176,43 @@ const SingleChoiceOptions = ({ choices }) => {
 };
 
 const MultiChoiceOptions = ({ choices }) => {
-    return (
-      <View
-        style={[
-          tailwind("mt-4 mx-4 border border-b-0 rounded"),
-          { borderColor: "rgb(215, 215, 215)" },
-        ]}
-      >
-        {choices.map((choice, index) => {
-          return (
-            <View
-              key={index}
-              style={[
-                tailwind("p-2 border-b"),
-                { borderColor: "rgb(215, 215, 215)" },
-              ]}
-            >
-              <TouchableOpacity>
-                <View style={tailwind("flex flex-row items-center pl-2")}>
-                  <Ionicons
-                    name="square-outline"
-                    size={24}
-                    style={tailwind("text-gray-500")}
-                  />
-                  <Text
-                    style={tailwind("text-base font-medium px-3 text-gray-500")}
-                  >
-                    {choice}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          );
-        })}
-      </View>
-    );
-  };
+  const tailwind = useTailwind();
+
+  return (
+    <View
+      style={[
+        tailwind("mt-4 mx-4 border border-b-0 rounded"),
+        { borderColor: "rgb(215, 215, 215)" },
+      ]}
+    >
+      {choices.map((choice, index) => {
+        return (
+          <View
+            key={index}
+            style={[
+              tailwind("p-2 border-b"),
+              { borderColor: "rgb(215, 215, 215)" },
+            ]}
+          >
+            <TouchableOpacity>
+              <View style={tailwind("flex flex-row items-center pl-2")}>
+                <Ionicons
+                  name="square-outline"
+                  size={24}
+                  style={tailwind("text-gray-500")}
+                />
+                <Text
+                  style={tailwind("text-base font-medium px-3 text-gray-500")}
+                >
+                  {choice}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        );
+      })}
+    </View>
+  );
+};
 
 export default RequestScreeningModal;

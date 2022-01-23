@@ -3,9 +3,11 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const MatchCard = ({ match }) => {
   const tailwind = useTailwind();
+  const navigation = useNavigation();
 
   return (
     <View
@@ -65,9 +67,7 @@ const MatchCard = ({ match }) => {
         <View style={tailwind("flex flex-row mt-4 justify-between")}>
           <View style={tailwind("flex-1 mx-0.5")}>
             <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("Request details", { request })
-              }
+              onPress={() => navigation.navigate("CompanyProfile", { match })}
               style={[
                 tailwind("rounded-lg px-6 py-2 border bg-white"),
                 { borderColor: "rgb(59, 130, 246)" },

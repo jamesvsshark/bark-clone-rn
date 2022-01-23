@@ -34,6 +34,36 @@ const RequestDetails = ({ route, navigation }) => {
             ))}
           </View>
 
+          <View style={tailwind("mt-6 border-b border-gray-300")}>
+            <Text style={tailwind("text-center text-base")}>
+              Need something else?
+            </Text>
+            <View style={tailwind("mx-14 mb-8")}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Request details", { request })
+                }
+                style={[
+                  tailwind("rounded-lg px-6 py-2 bg-blue-500 mt-4"),
+                  {
+                    shadowOffset: { width: 0, height: 4 },
+                    elevation: 4,
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                    filter:
+                      "filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06))",
+                  },
+                ]}
+              >
+                <Text
+                  style={tailwind("text-center text-white text-lg font-medium")}
+                >
+                  Place new request
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
           <RecommendedServicesCarousel services={sampleRecommendedServices} />
         </View>
 
