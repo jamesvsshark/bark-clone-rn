@@ -9,6 +9,16 @@
 			"position": "relative"
 		}
 	},
+	"bottom-0": {
+		"style": {
+			"bottom": 0
+		}
+	},
+	"top-0": {
+		"style": {
+			"top": 0
+		}
+	},
 	"mx-2": {
 		"style": {
 			"marginLeft": 8,
@@ -154,6 +164,21 @@
 			"marginTop": 12
 		}
 	},
+	"mb-20": {
+		"style": {
+			"marginBottom": 80
+		}
+	},
+	"mb-40": {
+		"style": {
+			"marginBottom": 160
+		}
+	},
+	"mt-5": {
+		"style": {
+			"marginTop": 20
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -169,6 +194,36 @@
 			"height": 4
 		}
 	},
+	"h-1/2": {
+		"style": {
+			"height": "50%"
+		}
+	},
+	"h-8": {
+		"style": {
+			"height": 32
+		}
+	},
+	"h-12": {
+		"style": {
+			"height": 48
+		}
+	},
+	"h-32": {
+		"style": {
+			"height": 128
+		}
+	},
+	"h-24": {
+		"style": {
+			"height": 96
+		}
+	},
+	"h-2": {
+		"style": {
+			"height": 8
+		}
+	},
 	"w-1/4": {
 		"style": {
 			"width": "25%"
@@ -177,6 +232,11 @@
 	"w-1/2": {
 		"style": {
 			"width": "50%"
+		}
+	},
+	"w-full": {
+		"style": {
+			"width": "100%"
 		}
 	},
 	"flex-1": {
@@ -356,6 +416,24 @@
 			"borderLeftColor": "rgb(229 231 235 / var(--tw-border-opacity))"
 		}
 	},
+	"border-blue-400": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(96 165 250 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(96 165 250 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(96 165 250 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(96 165 250 / var(--tw-border-opacity))"
+		}
+	},
+	"border-gray-400": {
+		"style": {
+			"--tw-border-opacity": 1,
+			"borderTopColor": "rgb(156 163 175 / var(--tw-border-opacity))",
+			"borderRightColor": "rgb(156 163 175 / var(--tw-border-opacity))",
+			"borderBottomColor": "rgb(156 163 175 / var(--tw-border-opacity))",
+			"borderLeftColor": "rgb(156 163 175 / var(--tw-border-opacity))"
+		}
+	},
 	"bg-white": {
 		"style": {
 			"--tw-bg-opacity": 1,
@@ -452,6 +530,18 @@
 			"paddingRight": 12
 		}
 	},
+	"py-6": {
+		"style": {
+			"paddingTop": 24,
+			"paddingBottom": 24
+		}
+	},
+	"py-3": {
+		"style": {
+			"paddingTop": 12,
+			"paddingBottom": 12
+		}
+	},
 	"pb-4": {
 		"style": {
 			"paddingBottom": 16
@@ -485,6 +575,16 @@
 	"pb-10": {
 		"style": {
 			"paddingBottom": 40
+		}
+	},
+	"pb-32": {
+		"style": {
+			"paddingBottom": 128
+		}
+	},
+	"pb-20": {
+		"style": {
+			"paddingBottom": 80
 		}
 	},
 	"text-center": {
@@ -591,6 +691,11 @@
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(37 99 235 / var(--tw-text-opacity))"
+		}
+	},
+	"underline": {
+		"style": {
+			"textDecorationLine": "underline"
 		}
 	},
 	"drop-shadow": {

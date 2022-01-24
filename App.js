@@ -14,6 +14,7 @@ import RequestDetailsHeader from "./components/RequestDetailsHeader";
 import { TailwindProvider } from "tailwind-rn";
 import utilities from "./tailwind.json";
 import CompanyProfile from "./pages/CompanyProfile";
+import AccountSettings from "./pages/AccountSettings";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -34,21 +35,7 @@ export default function App() {
                 options={{ headerShown: false }}
               />
               {/* does this belong here? */}
-              <Stack.Screen
-                name="CompanyProfile"
-                component={CompanyProfile}
-                // options={{
-                //   header: () => (
-                //     <TouchableOpacity onPress={() => navigation.goBack()}>
-                //       <Ionicons
-                //         name="close"
-                //         size={24}
-                //         style={tailwind("text-gray-400")}
-                //       />
-                //     </TouchableOpacity>
-                //   ),
-                // }}
-              />
+              <Stack.Screen name="CompanyProfile" component={CompanyProfile} />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaProvider>
@@ -111,7 +98,7 @@ const BottomTabNavigator = () => (
     />
     <BottomTab.Screen
       name="Settings"
-      component={Requests}
+      component={AccountSettings}
       options={{
         tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
       }}

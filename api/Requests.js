@@ -51,6 +51,16 @@ const sampleRequests = [
       {
         companyId: "2",
         companyLogo: require("../assets/trainer-logo.png"),
+        highlightedServices: [
+          "Quick to respond",
+          "Fitness training",
+          "Nutrition plans",
+        ],
+        reviewData: {
+          averageRating: 3,
+          reviewsCount: 10,
+          reviews: [],
+        },
       },
     ],
   },

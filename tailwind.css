@@ -6,6 +6,14 @@
   position: relative
 }
 
+.bottom-0 {
+  bottom: 0px
+}
+
+.top-0 {
+  top: 0px
+}
+
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem
@@ -124,6 +132,18 @@
   margin-top: 0.75rem
 }
 
+.mb-20 {
+  margin-bottom: 5rem
+}
+
+.mb-40 {
+  margin-bottom: 10rem
+}
+
+.mt-5 {
+  margin-top: 1.25rem
+}
+
 .flex {
   display: flex
 }
@@ -136,12 +156,40 @@
   height: 0.25rem
 }
 
+.h-1\/2 {
+  height: 50%
+}
+
+.h-8 {
+  height: 2rem
+}
+
+.h-12 {
+  height: 3rem
+}
+
+.h-32 {
+  height: 8rem
+}
+
+.h-24 {
+  height: 6rem
+}
+
+.h-2 {
+  height: 0.5rem
+}
+
 .w-1\/4 {
   width: 25%
 }
 
 .w-1\/2 {
   width: 50%
+}
+
+.w-full {
+  width: 100%
 }
 
 .flex-1 {
@@ -264,6 +312,16 @@
   border-color: rgb(229 231 235 / var(--tw-border-opacity))
 }
 
+.border-blue-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(96 165 250 / var(--tw-border-opacity))
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity))
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity))
@@ -336,6 +394,16 @@
   padding-right: 0.75rem
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem
+}
+
 .pb-4 {
   padding-bottom: 1rem
 }
@@ -362,6 +430,14 @@
 
 .pb-10 {
   padding-bottom: 2.5rem
+}
+
+.pb-32 {
+  padding-bottom: 8rem
+}
+
+.pb-20 {
+  padding-bottom: 5rem
 }
 
 .text-center {
@@ -449,6 +525,10 @@
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity))
+}
+
+.underline {
+  text-decoration-line: underline
 }
 
 .drop-shadow {
